@@ -1,0 +1,498 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="dual_arm_pincher">
+  <link name="arm1_base" />
+  <link name="arm1_arm_shoulder_pan_servo_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/ax12.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0135" />
+      <geometry>
+        <box size="0.032 0.038 0.05" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-7.38454e-07 0.000422614 -0.0130296" />
+      <mass value="0.08139802400654242" />
+      <inertia ixx="2.3143627968295997e-05" ixy="-6.904875516785507e-10" ixz="-2.4208698077741694e-10" iyy="1.9936031209683584e-05" iyz="3.504110421945422e-07" izz="1.2576986445925398e-05" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_shoulder_pan_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0045" />
+      <geometry>
+        <box size="0.025 0.038 0.009" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-1.72524e-06 4.83783e-07 -0.00240396" />
+      <mass value="0.006374458272892439" />
+      <inertia ixx="9.270000220058128e-07" ixy="-2.5814168895313843e-12" ixz="-2.4985237649917935e-10" iyy="4.018633414376187e-07" iyz="9.813034257837808e-12" izz="1.2864371800536346e-06" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_shoulder_lift_servo_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/ax12.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0135" />
+      <geometry>
+        <box size="0.032 0.038 0.05" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-7.38454e-07 0.000422614 -0.0130296" />
+      <mass value="0.08139802400654242" />
+      <inertia ixx="2.3143627968295997e-05" ixy="-6.904875516785507e-10" ixz="-2.4208698077741694e-10" iyy="1.9936031209683584e-05" iyz="3.504110421945422e-07" izz="1.2576986445925398e-05" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_shoulder_lift_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0215" />
+      <geometry>
+        <box size="0.028 0.0485 0.065" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-0.000589318 3.65417e-05 0.0288737" />
+      <mass value="0.025203193826508614" />
+      <inertia ixx="1.997638801949545e-05" ixy="9.66261623973993e-10" ixz="1.0343105915459652e-06" iyy="1.214970461462084e-05" iyz="-1.7113644679963033e-08" izz="1.1427207264696245e-05" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_shoulder_F10_0_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f10.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.025 0.038 0.004" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-8.67784e-06 -8.79317e-07 0.000171599" />
+      <mass value="0.0035170756160130324" />
+      <inertia ixx="3.992017647723594e-07" ixy="-3.5246444817584626e-12" ixz="-9.729500575523489e-13" iyy="2.2036114209006905e-07" iyz="2.2872438374335695e-12" izz="6.123206341186544e-07" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_shoulder_F10_1_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f10.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.025 0.038 0.004" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-8.67784e-06 -8.79317e-07 0.000171599" />
+      <mass value="0.0035170756160130324" />
+      <inertia ixx="3.992017647723594e-07" ixy="-3.5246444817584626e-12" ixz="-9.729500575523489e-13" iyy="2.2036114209006905e-07" iyz="2.2872438374335695e-12" izz="6.123206341186544e-07" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_shoulder_F10_2_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f10.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.025 0.038 0.004" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-8.67784e-06 -8.79317e-07 0.000171599" />
+      <mass value="0.0035170756160130324" />
+      <inertia ixx="3.992017647723594e-07" ixy="-3.5246444817584626e-12" ixz="-9.729500575523489e-13" iyy="2.2036114209006905e-07" iyz="2.2872438374335695e-12" izz="6.123206341186544e-07" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_shoulder_F3_0_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0045" />
+      <geometry>
+        <box size="0.025 0.038 0.009" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-1.72524e-06 4.83783e-07 -0.00240396" />
+      <mass value="0.006374458272892439" />
+      <inertia ixx="9.270000220058128e-07" ixy="-2.5814168895313843e-12" ixz="-2.4985237649917935e-10" iyy="4.018633414376187e-07" iyz="9.813034257837808e-12" izz="1.2864371800536346e-06" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_elbow_flex_servo_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/ax12.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0135" />
+      <geometry>
+        <box size="0.032 0.038 0.05" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-7.38454e-07 0.000422614 -0.0130296" />
+      <mass value="0.08139802400654242" />
+      <inertia ixx="2.3143627968295997e-05" ixy="-6.904875516785507e-10" ixz="-2.4208698077741694e-10" iyy="1.9936031209683584e-05" iyz="3.504110421945422e-07" izz="1.2576986445925398e-05" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_elbow_flex_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0215" />
+      <geometry>
+        <box size="0.028 0.0485 0.065" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-0.000589318 3.65417e-05 0.0288737" />
+      <mass value="0.025203193826508614" />
+      <inertia ixx="1.997638801949545e-05" ixy="9.66261623973993e-10" ixz="1.0343105915459652e-06" iyy="1.214970461462084e-05" iyz="-1.7113644679963033e-08" izz="1.1427207264696245e-05" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_elbow_F10_0_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f10.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.025 0.038 0.004" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-8.67784e-06 -8.79317e-07 0.000171599" />
+      <mass value="0.0035170756160130324" />
+      <inertia ixx="3.992017647723594e-07" ixy="-3.5246444817584626e-12" ixz="-9.729500575523489e-13" iyy="2.2036114209006905e-07" iyz="2.2872438374335695e-12" izz="6.123206341186544e-07" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_elbow_F10_1_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f10.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.025 0.038 0.004" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-8.67784e-06 -8.79317e-07 0.000171599" />
+      <mass value="0.0035170756160130324" />
+      <inertia ixx="3.992017647723594e-07" ixy="-3.5246444817584626e-12" ixz="-9.729500575523489e-13" iyy="2.2036114209006905e-07" iyz="2.2872438374335695e-12" izz="6.123206341186544e-07" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_elbow_F10_2_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f10.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.025 0.038 0.004" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-8.67784e-06 -8.79317e-07 0.000171599" />
+      <mass value="0.0035170756160130324" />
+      <inertia ixx="3.992017647723594e-07" ixy="-3.5246444817584626e-12" ixz="-9.729500575523489e-13" iyy="2.2036114209006905e-07" iyz="2.2872438374335695e-12" izz="6.123206341186544e-07" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_elbow_F3_0_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0045" />
+      <geometry>
+        <box size="0.025 0.038 0.009" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-1.72524e-06 4.83783e-07 -0.00240396" />
+      <mass value="0.006374458272892439" />
+      <inertia ixx="9.270000220058128e-07" ixy="-2.5814168895313843e-12" ixz="-2.4985237649917935e-10" iyy="4.018633414376187e-07" iyz="9.813034257837808e-12" izz="1.2864371800536346e-06" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_wrist_flex_servo_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/ax12.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0135" />
+      <geometry>
+        <box size="0.032 0.038 0.05" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-7.38454e-07 0.000422614 -0.0130296" />
+      <mass value="0.08139802400654242" />
+      <inertia ixx="2.3143627968295997e-05" ixy="-6.904875516785507e-10" ixz="-2.4208698077741694e-10" iyy="1.9936031209683584e-05" iyz="3.504110421945422e-07" izz="1.2576986445925398e-05" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_wrist_flex_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f2.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.00775" />
+      <geometry>
+        <box size="0.025 0.0485 0.0375" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="1.83625e-06 4.41782e-08 0.0154045" />
+      <mass value="0.014479017200129543" />
+      <inertia ixx="6.472388590001224e-06" ixy="-1.892671596204799e-12" ixz="-3.0007457063740617e-10" iyy="2.498962550910956e-06" iyz="-2.3584142968316667e-12" izz="5.6994603934534456e-06" />
+    </inertial>
+  </link>
+  <link name="arm1_arm_wrist_F3_0_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/f3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0045" />
+      <geometry>
+        <box size="0.025 0.038 0.009" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-1.72524e-06 4.83783e-07 -0.00240396" />
+      <mass value="0.006374458272892439" />
+      <inertia ixx="9.270000220058128e-07" ixy="-2.5814168895313843e-12" ixz="-2.4985237649917935e-10" iyy="4.018633414376187e-07" iyz="9.813034257837808e-12" izz="1.2864371800536346e-06" />
+    </inertial>
+  </link>
+  <link name="arm1_gripper_servo_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/ax12.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0135" />
+      <geometry>
+        <box size="0.032 0.038 0.05" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="-7.38454e-07 0.000422614 -0.0130296" />
+      <mass value="0.08139802400654242" />
+      <inertia ixx="2.3143627968295997e-05" ixy="-6.904875516785507e-10" ixz="-2.4208698077741694e-10" iyy="1.9936031209683584e-05" iyz="3.504110421945422e-07" izz="1.2576986445925398e-05" />
+    </inertial>
+  </link>
+  <link name="arm1_gripper_finger_base_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="package://dual_arm_description/meshes/visual/gripper_base.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.002 0.075 0.040" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="0 2.98023e-08 0" />
+      <mass value="0.011837674839899828" />
+      <inertia ixx="7.127260849628046e-06" ixy="3.400011875409145e-24" ixz="-0.0" iyy="1.5822994239366863e-06" iyz="-0.0" izz="5.5528530038746866e-06" />
+    </inertial>
+  </link>
+  <link name="arm1_end_effector">
+  </link>
+  <joint name="arm1_arm_shoulder_pan_servo_joint" type="fixed">
+    <parent link="arm1_base" />
+    <child link="arm1_arm_shoulder_pan_servo_link" />
+    <origin rpy="1.5707963267948966 0.0 1.5707963267948966" xyz="0.0 0.0 0.0" />
+  </joint>
+  <joint name="arm1_arm_shoulder_pan_joint" type="revolute">
+    <parent link="arm1_arm_shoulder_pan_servo_link" />
+    <child link="arm1_arm_shoulder_pan_link" />
+    <origin rpy="-1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0.019 0.0" />
+    <axis xyz="0.0 0.0 -1.0" />
+    <limit effort="30" lower="-2.6179938779914944" upper="2.6179938779914944" velocity="1.5707963267948966" />
+    <dynamics damping="1.4" friction="0.02" />
+  </joint>
+  <joint name="arm1_arm_shoulder_lift_servo_joint" type="fixed">
+    <parent link="arm1_arm_shoulder_pan_link" />
+    <child link="arm1_arm_shoulder_lift_servo_link" />
+    <origin rpy="0.0 3.141592653589793 0.0" xyz="0.0 0.0 -0.035" />
+  </joint>
+  <joint name="arm1_arm_shoulder_lift_joint" type="revolute">
+    <parent link="arm1_arm_shoulder_lift_servo_link" />
+    <child link="arm1_arm_shoulder_lift_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit effort="30" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="1.5707963267948966" />
+    <dynamics damping="1.4" friction="0.02" />
+  </joint>
+  <joint name="arm1_arm_shoulder_F10_0_joint" type="fixed">
+    <parent link="arm1_arm_shoulder_lift_link" />
+    <child link="arm1_arm_shoulder_F10_0_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0545" />
+  </joint>
+  <joint name="arm1_arm_shoulder_F10_1_joint" type="fixed">
+    <parent link="arm1_arm_shoulder_F10_0_link" />
+    <child link="arm1_arm_shoulder_F10_1_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.004" />
+  </joint>
+  <joint name="arm1_arm_shoulder_F10_2_joint" type="fixed">
+    <parent link="arm1_arm_shoulder_F10_1_link" />
+    <child link="arm1_arm_shoulder_F10_2_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.004" />
+  </joint>
+  <joint name="arm1_arm_shoulder_F3_0_joint" type="fixed">
+    <parent link="arm1_arm_shoulder_F10_2_link" />
+    <child link="arm1_arm_shoulder_F3_0_link" />
+    <origin rpy="0.0 3.141592653589793 0.0" xyz="0.0 0.0 0.002" />
+  </joint>
+  <joint name="arm1_arm_elbow_flex_servo_joint" type="fixed">
+    <parent link="arm1_arm_shoulder_F3_0_link" />
+    <child link="arm1_arm_elbow_flex_servo_link" />
+    <origin rpy="0.0 3.141592653589793 0.0" xyz="0.0 0.0 -0.035" />
+  </joint>
+  <joint name="arm1_arm_elbow_flex_joint" type="revolute">
+    <parent link="arm1_arm_elbow_flex_servo_link" />
+    <child link="arm1_arm_elbow_flex_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit effort="30" lower="-2.426007660272118" upper="2.426007660272118" velocity="1.5707963267948966" />
+    <dynamics damping="1.4" friction="0.02" />
+  </joint>
+  <joint name="arm1_arm_elbow_F10_0_joint" type="fixed">
+    <parent link="arm1_arm_elbow_flex_link" />
+    <child link="arm1_arm_elbow_F10_0_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0545" />
+  </joint>
+  <joint name="arm1_arm_elbow_F10_1_joint" type="fixed">
+    <parent link="arm1_arm_elbow_F10_0_link" />
+    <child link="arm1_arm_elbow_F10_1_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.004" />
+  </joint>
+  <joint name="arm1_arm_elbow_F10_2_joint" type="fixed">
+    <parent link="arm1_arm_elbow_F10_1_link" />
+    <child link="arm1_arm_elbow_F10_2_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.004" />
+  </joint>
+  <joint name="arm1_arm_elbow_F3_0_joint" type="fixed">
+    <parent link="arm1_arm_elbow_F10_2_link" />
+    <child link="arm1_arm_elbow_F3_0_link" />
+    <origin rpy="0.0 3.141592653589793 0.0" xyz="0.0 0.0 0.002" />
+  </joint>
+  <joint name="arm1_arm_wrist_flex_servo_joint" type="fixed">
+    <parent link="arm1_arm_elbow_F3_0_link" />
+    <child link="arm1_arm_wrist_flex_servo_link" />
+    <origin rpy="0.0 3.141592653589793 0.0" xyz="0.0 0.0 -0.035" />
+  </joint>
+  <joint name="arm1_arm_wrist_flex_joint" type="revolute">
+    <parent link="arm1_arm_wrist_flex_servo_link" />
+    <child link="arm1_arm_wrist_flex_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit effort="30" lower="-1.710422666954443" upper="1.7976891295541593" velocity="1.5707963267948966" />
+    <dynamics damping="1.4" friction="0.02" />
+  </joint>
+  <joint name="arm1_arm_wrist_F3_0_joint" type="fixed">
+    <parent link="arm1_arm_wrist_flex_link" />
+    <child link="arm1_arm_wrist_F3_0_link" />
+    <origin rpy="0 3.141592653589793 -3.141592653589793" xyz="0.0 0.0 0.0265" />
+  </joint>
+  <joint name="arm1_gripper_servo_joint" type="fixed">
+    <parent link="arm1_arm_wrist_F3_0_link" />
+    <child link="arm1_gripper_servo_link" />
+    <origin rpy="1.5707963267948966 3.141592653589793 1.5707963267948966" xyz="0.0 0.0 -0.019" />
+  </joint>
+  <joint name="arm1_gripper_finger_base_joint" type="fixed">
+    <parent link="arm1_gripper_servo_link" />
+    <child link="arm1_gripper_finger_base_link" />
+    <origin rpy="3.141592653589793 0.0 1.5707963267948966" xyz="0 0.019 0.0" />
+  </joint>
+  <joint name="arm1_end_effector_virtual_joint" type="fixed">
+    <parent link="arm1_gripper_finger_base_link" />
+    <child link="arm1_end_effector" />
+    <origin rpy="1.5707963267948966 -1.5707963267948966 1.5707963267948966" xyz="0.019 0.0 0.0" />
+  </joint>
+  <link name="arm1_suction_tcp">
+    <visual>
+      <origin xyz="0 0 -0.0125" />
+      <geometry>
+        <cylinder radius="0.008" length="0.025" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.0125" />
+      <geometry>
+        <cylinder radius="0.008" length="0.025" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="arm1_suction_fixed" type="fixed">
+    <parent link="arm1_end_effector" />
+    <child link="arm1_suction_tcp" />
+    <origin xyz="0 0 0.025" rpy="0 0 0" />
+  </joint>
+</robot>

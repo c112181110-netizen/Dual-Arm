@@ -1,0 +1,70 @@
+# BLOCKED TEMPLATE: replace all .nan and ALL motor/model/timing placeholders by measurements.
+# No real geometry is assumed. Joint order = arm2 IDs 12,1,8,16.
+# standalone_arm1_secured requires arm1 physically secured outside every arm2 path.
+arm2_coordinator:
+  ros__parameters:
+    simulation: false
+    calibrated: false
+    auto_confirm_demo: false
+    base_frame: arm2_base
+    tcp_link: arm2_suction_tcp
+    planning_group: arm2
+    controller_name: arm2_controller
+    joint_names: [arm2_arm_shoulder_pan_joint, arm2_arm_shoulder_lift_joint, arm2_arm_elbow_flex_joint, arm2_arm_wrist_flex_joint]
+    grid_verification: true
+    grid_service: /vision/arm2/get_grid_state
+    verify_service: /vision/arm2/verify_place
+    grid_position_tolerance: 0.01  # metres; measure acceptable camera/config disagreement
+    require_size_order: false    # placement sequence 1..8 does not imply sorting by object size
+    service_timeout: 4.0
+    planning_timeout: 5.0
+    execution_margin: 20.0
+    joint_state_max_age: 1.0
+    zone_wait_timeout: 30.0
+    zone_poll_period: 0.2
+    manual_timeout: 600.0
+    calibration_id: ''
+    home_joints: [.nan, .nan, .nan, .nan]
+    b_pick: [.nan, .nan, .nan, .nan, .nan, .nan, .nan]
+    c_poses: [  # each line: x, y, z, qx, qy, qz, qw (arm2_base, metres)
+      .nan, .nan, .nan, .nan, .nan, .nan, .nan,  # C1
+      .nan, .nan, .nan, .nan, .nan, .nan, .nan,  # C2
+      .nan, .nan, .nan, .nan, .nan, .nan, .nan,  # C3
+      .nan, .nan, .nan, .nan, .nan, .nan, .nan,  # C4
+      .nan, .nan, .nan, .nan, .nan, .nan, .nan,  # C5
+      .nan, .nan, .nan, .nan, .nan, .nan, .nan,  # C6
+      .nan, .nan, .nan, .nan, .nan, .nan, .nan,  # C7
+      .nan, .nan, .nan, .nan, .nan, .nan, .nan  # C8
+    ]
+    rows: 2
+    columns: 4
+    approach_height: .nan
+    home_settle: 1.1
+    velocity_scale: 0.1
+    acceleration_scale: 0.1
+    table_size: [.nan, .nan, .nan]
+    table_center: [.nan, .nan, .nan]
+    disk_radius: .nan
+    disk_thickness: .nan
+    obstacle_boxes: [.nan, .nan, .nan, .nan, .nan, .nan]
+    safety_max_age: 2.0
+    standalone_arm1_secured: false
+cm530_bridge:
+  ros__parameters:
+    mock_hardware: false
+    arms: [arm2]
+    command_period: 0.1
+    position_tolerance: .nan  # measured arrival tolerance, radians
+    stable_count: 3
+    hardware_calibrated: false
+    serial_port: ''
+    command_timeout: 2.0
+    arrival_timeout: 10.0
+    max_schedule_lag: 0.25
+    # Invalid sentinels force explicit motor calibration before opening serial.
+    arm2.zero_raw: [-1, -1, -1, -1]
+    arm2.direction: [0, 0, 0, 0]  # replace each with +1 or -1
+    arm2.raw_min: [-1, -1, -1, -1]
+    arm2.raw_max: [-1, -1, -1, -1]
+    arm2.lower_rad: [.nan, .nan, .nan, .nan]
+    arm2.upper_rad: [.nan, .nan, .nan, .nan]

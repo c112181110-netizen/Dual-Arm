@@ -1,0 +1,58 @@
+# SIMULATION ONLY; NOT hardware measurements.
+# c_poses: row 1 slots 1..4; row 2 slots 5..8; [x,y,z,qx,qy,qz,qw].
+arm2_coordinator:
+  ros__parameters:
+    simulation: true
+    calibrated: false
+    auto_confirm_demo: false
+    base_frame: arm2_base
+    tcp_link: arm2_suction_tcp
+    planning_group: arm2
+    controller_name: arm2_controller
+    joint_names: [arm2_arm_shoulder_pan_joint, arm2_arm_shoulder_lift_joint, arm2_arm_elbow_flex_joint, arm2_arm_wrist_flex_joint]
+    grid_verification: true
+    grid_service: /vision/arm2/get_grid_state
+    verify_service: /vision/arm2/verify_place
+    grid_position_tolerance: 0.01  # metres; measure acceptable camera/config disagreement
+    require_size_order: false    # placement sequence 1..8 does not imply sorting by object size
+    service_timeout: 4.0
+    planning_timeout: 5.0
+    execution_margin: 20.0
+    joint_state_max_age: 1.0
+    zone_wait_timeout: 30.0
+    zone_poll_period: 0.2
+    manual_timeout: 600.0
+    calibration_id: DEMO_ONLY
+    home_joints: [0.0, 0.0, 1.5708, 1.5708]
+    b_pick: [0.15, -0.04, 0.02, 0.9915228034698058, -0.12993279108591818, 0.0, 0.0]
+    c_poses: [  # each line: x, y, z, qx, qy, qz, qw (arm2_base, metres)
+      0.115, -0.005, 0.02, 0.9997640117435362, -0.0217237386853697, 0.0, 0.0,  # C1
+      0.115, 0.02, 0.02, 0.9962960791902361, 0.08598908413375944, 0.0, 0.0,  # C2
+      0.115, 0.045, 0.02, 0.9826603634282176, 0.18541469776456043, 0.0, 0.0,  # C3
+      0.115, 0.07, 0.02, 0.9628599471404028, 0.2700013373907261, 0.0, 0.0,  # C4
+      0.14, -0.005, 0.02, 0.9998407008987855, -0.017848608523501966, 0.0, 0.0,  # C5
+      0.14, 0.02, 0.02, 0.9974842088126424, 0.0708890200906793, 0.0, 0.0,  # C6
+      0.14, 0.045, 0.02, 0.9879343503708291, 0.1548732364140682, 0.0, 0.0,  # C7
+      0.14, 0.07, 0.02, 0.9732489894677302, 0.22975292054736118, 0.0, 0.0  # C8
+    ]
+    rows: 2
+    columns: 4
+    approach_height: 0.02
+    home_settle: 1.1
+    velocity_scale: 0.25
+    acceleration_scale: 0.25
+    table_size: [0.6, 0.6, 0.02]
+    table_center: [0.0, 0.0, -0.06]
+    disk_radius: 0.01
+    disk_thickness: 0.002
+    obstacle_boxes: [0.0, 0.0, -0.2, 0.01, 0.01, 0.01]
+    safety_max_age: 2.0
+    standalone_arm1_secured: false
+cm530_bridge:
+  ros__parameters:
+    mock_hardware: true
+    arms: [arm2]
+    command_period: 0.05
+    position_tolerance: 0.025
+    stable_count: 3
+    arm2.initial_rad: [0.0, 0.0, 1.5708, 1.5708]

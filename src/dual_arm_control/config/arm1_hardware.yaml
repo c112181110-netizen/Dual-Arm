@@ -1,0 +1,42 @@
+# Fill from measurement before setting both calibrated flags to true.
+# This file deliberately cannot enable real motion as shipped.
+task_coordinator:
+  ros__parameters:
+    simulation: false
+    calibrated: false
+    auto_confirm_demo: false
+    base_frame: arm1_base
+    tcp_link: arm1_suction_tcp
+    home_joints: [0.0, 0.0, 0.0, 0.0]  # TODO: measured Home_A, radians
+    pick_z: 0.045                       # TODO: base-frame object top height, metres
+    height_tolerance: 0.003
+    b_place: [0.15, -0.04, 0.045]       # TODO: B contact target in arm1_base, metres
+    a_min: [0.08, 0.0, 0.04]           # TODO: calibrated A bounds
+    a_max: [0.20, 0.10, 0.05]
+    approach_height: 0.03              # TODO: clearance based on actual scene
+    home_settle: 1.1
+    peek_only: true                     # Query does not mark the object taken
+    velocity_scale: 0.15
+    acceleration_scale: 0.15
+    table_size: [0.6, 0.6, 0.02]        # TODO: actual collision scene
+    table_center: [0.0, 0.0, -0.06]
+    disk_radius: 0.01                   # TODO: measured dimensions
+    disk_thickness: 0.002
+cm530_bridge:
+  ros__parameters:
+    mock_hardware: false
+    hardware_calibrated: false
+    serial_port: ''                     # TODO: /dev/serial/by-id/... for CM530
+    arms: [arm1]
+    command_period: 0.1                 # TODO: benchmark AX+READ round-trip
+    command_timeout: 2.0
+    max_schedule_lag: 0.25
+    arrival_timeout: 10.0
+    stable_count: 3
+    position_tolerance: 0.025           # TODO: calibrated tolerance in radians
+    arm1.zero_raw: [512, 512, 512, 512] # TODO: j1..j4 correspond to IDs 17,3,2,15
+    arm1.direction: [1, 1, 1, 1]        # TODO: compare physical direction with URDF
+    arm1.raw_min: [0, 0, 0, 0]         # TODO: physical mechanism limits
+    arm1.raw_max: [1023, 1023, 1023, 1023]
+    arm1.lower_rad: [-2.61799, -2.09439, -2.426, -1.7104]
+    arm1.upper_rad: [2.61799, 2.09439, 2.426, 1.7976]

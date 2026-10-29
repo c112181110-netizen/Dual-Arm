@@ -1,0 +1,7 @@
+# Copy the exact token from /arm1/status. Tokens cannot confirm future steps.
+string token
+bool success
+string message
+---
+bool accepted
+string message

@@ -1,0 +1,32 @@
+# Demonstration coordinates and ideal raw-position actuator; not real calibration.
+task_coordinator:
+  ros__parameters:
+    simulation: true
+    calibrated: false
+    auto_confirm_demo: false
+    home_joints: [0.0, 0.0, 1.5708, 1.5708]
+    pick_z: 0.02
+    b_place: [0.15, -0.04, 0.02]
+    a_min: [0.08, 0.0, 0.017]
+    a_max: [0.20, 0.10, 0.023]
+    approach_height: 0.02
+    # Existing vision uses Home-only homography and up to 1 s cached results.
+    home_settle: 1.1
+    peek_only: true
+    target_rank: 0
+    table_size: [0.6, 0.6, 0.02]
+    table_center: [0.0, 0.0, -0.06]
+    disk_radius: 0.01
+    disk_thickness: 0.002
+cm530_bridge:
+  ros__parameters:
+    mock_hardware: true
+    mock_time_scale: 1.0
+    arms: [arm1]
+    command_period: 0.05
+    position_tolerance: 0.025
+    stable_count: 3
+    arm1.initial_rad: [0.0, 0.0, 1.5708, 1.5708]
+mock_vision:
+  ros__parameters:
+    pick_xyz: [0.15, 0.04, 0.02]
